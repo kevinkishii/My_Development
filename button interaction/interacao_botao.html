@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botao interativo</title>
+    <style>
+        body {
+            font: normal 20pt Arial;
+        }
+        div {
+            font: normal 20pt Arial;
+            text-align: center;
+            line-height: 200px;
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    Interaja com o Botao
+    <div id="button" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()">
+        Interaja!
+    </div>
+    <script>
+        var button = window.document.querySelector(`div#button`)
+        function clicar() {
+            button.innerHTML = `clicou!`
+            button.style.background = `pink`
+            button.style.color = `blue`  
+        }
+        function entrar() {
+            button.innerHTML = `Entrou`
+            button.style.background = `green`
+            button.style.color = `yellow`
+        }
+        function sair() {
+            button.innerHTML = `saiu`
+            button.style.background = `red`
+            button.style.color = `white`
+        }
+    </script>    
+</body>
+
+</html>
