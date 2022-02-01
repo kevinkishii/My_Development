@@ -13,7 +13,7 @@ readFile('./content/first.txt','utf8',(err,result)=>{
         }
         const second = result
         writeFile('./content/result-async.txt',
-        `Here is the result: ${first}, ${second}`,
+        `Here is the result of async programming: ${first}, ${second}`,
         (err,result)=>{
             if(err){
                 console.log(err)
