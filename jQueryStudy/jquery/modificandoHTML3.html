@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #03</h1>
+    <div id='conteudo'></div>
+
+    <script>
+        //Para executarmos uma função quando a DOM estiver pronta fazemos de 2 formas
+        //alternativa 1
+        //$(document).ready(function(){ ...........})
+
+        //alternativa 2
+        $(function(){
+        const pessoas = [
+            { nome: 'Ana', nota: 9.1 },
+            { nome: 'Bianca', nota: 8.4 },
+            { nome: 'Carlos', nota: 7.6 },
+            { nome: 'Julia', nota: 9.7 }
+        ]
+
+        $('#conteudo').append('<table></table>')
+        $('table').append(
+            '<tr><th>Nome</th><th>Nota</th></tr>')
+        pessoas.map((aluno)=>{
+            let nome = $('<td>').html(aluno.nome)
+            let nota = $('<td>').html(aluno.nota)
+            $('table').append('<tr>').append(nome).append(nota)
+            //$('table').append('<tr>').append(nome,nota)
+        })
+
+        //solução 2
+
+        // const linhas = pessoas.map(p=>{
+        //     const tdNome = $('<td>').html(p.nome)
+        //     const tdNota = $('<td>').html(p.nota)
+        //     return $('<tr>').append(tdNome).append(tdNota)
+        // })
+
+        // const tabela = $('<table>').append(linhas)
+        
+        // $('#conteudo').append(tabela)
+        })
+    </script>
+</body>

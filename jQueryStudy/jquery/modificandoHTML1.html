@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #01</h1>
+    <div id='conteudo1'></div>
+    <div id='conteudo2'></div>
+    <div id='conteudo3'></div>
+    <div>Sem id</div>
+
+    <script>
+        //adicionando um elemento 
+        $('#conteudo1').append('<p>1</p>')
+
+        //Criando um conjunto de elementos e colocando em um array
+        const elementos = [
+            $('<li></li>').append('Arroz'),
+            $('<li>').append('Feijão'),
+            $('<li>').append('Carne')
+        ]
+        
+        //podemos criamos então o elemento ul e o inserimos na div conteudo2
+        const lista = $('<ul><li>Sorvete</li></ul>').append(elementos)
+        $('#conteudo2').append(lista)
+
+        //colocamos os elementos soltos com , ou como array.
+        //e podemos colocar um item ateriormente com prepend
+        $('#conteudo3').append('<h1>1</h1>','<h1>2</h1>').prepend('<h1>0</h1>')
+        
+        //diferentemente do append, o comando html substitui
+        $('#conteudo3').html('<h1>123</h1>')
+        //já o comando text, substitui somente o texto interno
+        $('#conteudo3').text('<h1>123</h1>')
+
+        //Alterando todos os itens
+        $('div[id]').html('<strong>Todos!</strong>')
+        //no caso selecionamos todas as divs com o atributo id
+
+    </script>
+</body>
