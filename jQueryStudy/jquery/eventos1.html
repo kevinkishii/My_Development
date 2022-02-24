@@ -20,6 +20,48 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
-        // ...
+        function mostrarPosicaoMouse(e) {
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+
+        $('body').on('mousemove',mostrarPosicaoMouse)
+        //on é uma função que registra um evento no jQuery
+        //no caso quando ocorre o evento mousemove, se executa a função mostrarPosicaoMouse
+        //lembrar de não invocar a função com os parenteses
+
+        $('#posicao').mouseover(e=>{
+            $('body').off('mousemove',mostrarPosicaoMouse)
+        })
+        //função mouseover é ao mover o mouse acima
+        //função off desliga o on que deixamos no mousemove
+
+        $('#posicao').mouseleave(e=>{
+            $('body').mousemove(mostrarPosicaoMouse)
+        })
+        //mouseleave é ao mouse sair do elemento
+        //no caso ativamos de volta a função mostrarPosicaoMouse
+
+        let cliques = 0
+        $('body').click(e=>{
+            $('#cliques').html(`Cliques: ${++cliques}`)
+        })
+        //Neste quando realizamos cliques no body concatenamos os cliques
+
+        const backgroundOriginal = $('body').css('background-color')
+        
+        //keyup e keydown
+        //funções retornam a string que está sendo inserida no input
+        //keyup retorna toda a string, enquando keydown retorna até o penúltimo caractere
+        $('input').keyup(function (e) {
+            // console.log(e.target.value)
+            const valor = $(this).val()
+            console.log(valor)
+            if (valor.match(/#[\da-fA-F]{3,6}/)){
+                $('body').css('background-color', valor)
+            }else{
+                $('body').css('background-color',backgroundOriginal)
+            }
+        })
+        //função troca o background-color do body para a cor que colocarmos
     </script>
 </body>

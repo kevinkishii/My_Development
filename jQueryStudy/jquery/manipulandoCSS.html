@@ -15,6 +15,33 @@
     <div id='div3'>3</div>
     <div id='resultado'></div>
     <script>
-        // ...
+        const fonte = $('#div1').css('font-family')
+        //Caso colocar somente 1 elemento no comando css ele irá retornar o seu valor,
+        $('#resultado').append(`Fonte é ${fonte}`)
+        //no caso Oswald,Sans-serif
+
+        $('#div1').css('font-size','3em')
+        $('#div1').css({'font-size': '3.5em', 'color': 'yellow'})
+        //Setando mais de um elemento criamos um objeto.
+        $('#div1').css('font-size',function (){
+            return `${2*2}em`
+        })
+        //Podemos setar também um valor com uma função.
+
+        $('#div2').addClass('destaque')
+        //adiciona Classe
+
+        const temClasse = $('#div2').hasClass('destaque')
+        //hasClass verifica se tem a classe e retorna um boolean
+        $('#resultado').append(`<br>Tem class? ${temClasse}`)
+
+        //remove a classe destaque
+        $('#div2').removeClass('destaque')
+
+        //o toggle alterna entre addClass e removeClass
+        //caso existe, ele remove a classe
+        //caso não existe ele add a classe
+        $('#div2').toggleClass('destaque')
+        $('#div2').toggleClass('destaque')
     </script>
 </body>

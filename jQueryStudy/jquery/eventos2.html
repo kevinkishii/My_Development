@@ -21,6 +21,37 @@
     <input type="text" placeholder="Digite e Selecione">
     <div id="resultado2">?</div>
     <script>
-        // ...
+        const alternarDestaque = () => $('#div1').toggleClass('destaque')
+        $('#div1').hover(alternarDestaque,alternarDestaque)
+        //função hover é ao passar por cima do elemento
+        //podendo colocar 2 ou 1 elemento
+        //com 1 propriedades ele realiza o mesmo comando quando entra e quando sai
+        //com 2 propriedades faz 1 ao entrar e 1 ao sair
+        //mesma ação que a função abaixo
+        //$('#div1').on('mouseenter mouseleave', alternarDestaque)
+
+        $('#div1').one('mouseenter', e => alert('Aviso Importante: Obrigado!!!'))
+        //funcao one é realizada somente 1 vez no envento,
+        //formato é o mesmo do on
+        $('#div1').dblclick(e => $('#div1').fadeOut(1000).fadeIn(1000))
+        //função dbclick é invocada ao realizar double click 
+
+        $(window).resize(function(e){
+            const l = $(window).width()
+            const a = $(window).height()
+            $('#resultado1').html(`Largura ${l} e Altura ${a}`)
+        })
+        //funcao resize é ao mudar o tamanho
+        //podemos também colocar window ao invés de 1 elemento
+
+        $(':input').select( e=>{
+            const inicio = e.target.selectionStart
+            const fim = e.target.selectionEnd
+            $('#resultado2').html(e.target.value.substring(inicio,fim))
+        })
+        //selecionando todos os inputs
+        //e ao ser selecionado um texto
+        //teremos no resultado 2 o valor html com o valor grifado  
+
     </script>
 </body>

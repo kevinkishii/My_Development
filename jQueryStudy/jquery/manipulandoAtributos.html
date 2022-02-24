@@ -22,6 +22,7 @@
 <body class='conteudo exercicio'>
     <h1>Manipulando Atributos</h1>
     <div wm-relogio='1000'></div>
+    <div wm-relogio='3000'></div>
     <script>
         function Relogio(elemento) {
             const horaCerta = $('<p>').html('0')
@@ -53,5 +54,14 @@
         }
 
         $('[wm-relogio]').each((i,e)=>new Relogio(e))
+
+        // $('[wm-relogio]').attr('opa',3)
+        // Alterar ou incluir
+
+        // $('[wm-relogio]').attr('opa')
+        // ler atributo
+
+        $('[wm-relogio]').attr({opa:1,novo:true})
+        $('[wm-relogio]').removeAttr('opa').removeAttr('novo')
     </script>
 </body>
